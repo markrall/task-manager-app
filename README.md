@@ -6,10 +6,10 @@ This is the companion front end to the [Task Manager API](https://github.com/mar
 
 Initial todos:
 
-- test connection to TMAPI, with either [cors](https://github.com/expressjs/cors#readme) or [Proxying API Requests](https://create-react-app.dev/docs/proxying-api-requests-in-development) documented on the CRA website
 - rough out wirefrmaes and flows
 - define component tree and component structure (incl containers)
 - define application state, reducers and actions
+- use auth to toggle site/app display state
 
 ---
 

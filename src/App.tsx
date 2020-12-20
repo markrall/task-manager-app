@@ -1,16 +1,9 @@
-import React, { useState } from 'react'
-import {
-  Button,
-  Box,
-  Collapsible,
-  Heading,
-  Grommet,
-  Layer,
-  ResponsiveContext,
-} from 'grommet'
-import { FormClose, Notification } from 'grommet-icons'
+import React from 'react'
+// import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
+import { Grommet } from 'grommet'
+// import axios from './shared/store/axios-common'
 
-import AppBar from './components/ui/AppBar'
+import Layout from './components/Layout'
 
 const theme = {
   global: {
@@ -26,66 +19,32 @@ const theme = {
 }
 
 const App = () => {
-  const [showSidebar, setShowSidebar] = useState(false)
+  // const [data, setData] = useState({ token: '', _id: '' })
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const result = await axios.post('users/login', {
+  //         name: 'Mark',
+  //         email: 'mark@example.com',
+  //         password: 'r5_9)Gq2!@135',
+  //       })
+
+  //       setData({
+  //         token: result.data.token,
+  //         _id: result.data.user._id,
+  //       })
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
+
+  //   fetchData()
+  // }, [])
+
   return (
-    <Grommet theme={theme} themeMode="dark" full>
-      <ResponsiveContext.Consumer>
-        {size => (
-          <Box fill>
-            <AppBar>
-              <Heading level="3" margin="none">
-                My App
-              </Heading>
-              <Button
-                icon={<Notification />}
-                onClick={() => setShowSidebar(!showSidebar)}
-              />
-            </AppBar>
-            <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
-              <Box flex align="center" justify="center">
-                app body
-              </Box>
-              {!showSidebar || size !== 'small' ? (
-                <Collapsible direction="horizontal" open={showSidebar}>
-                  <Box
-                    flex
-                    width="medium"
-                    background="light-2"
-                    elevation="small"
-                    align="center"
-                    justify="center"
-                  >
-                    sidebar
-                  </Box>
-                </Collapsible>
-              ) : (
-                <Layer>
-                  <Box
-                    background="light-2"
-                    tag="header"
-                    justify="end"
-                    align="center"
-                    direction="row"
-                  >
-                    <Button
-                      icon={<FormClose />}
-                      onClick={() => setShowSidebar(false)}
-                    />
-                  </Box>
-                  <Box
-                    fill
-                    background="light-2"
-                    align="center"
-                    justify="center"
-                  >
-                    sidebar
-                  </Box>
-                </Layer>
-              )}
-            </Box>
-          </Box>
-        )}
-      </ResponsiveContext.Consumer>
+    <Grommet theme={theme} full>
+      <Layout />
     </Grommet>
   )
 }
